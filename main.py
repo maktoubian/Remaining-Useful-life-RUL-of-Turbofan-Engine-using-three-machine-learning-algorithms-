@@ -13,8 +13,8 @@ import seaborn as sns
 
 
 #Importing both test and train datasets
-df_test_FD001 = pd.read_csv('C:\\Users\\jamalm\\Desktop\\dataSet\\Aircraft-Engine-Lifetime-Prediction-with-Machine-Learning-master\\Datasets\\FD001\\test_FD001.txt', sep=' ', header=None)
-df_train_FD001 = pd.read_csv('C:\\Users\\jamalm\\Desktop\\dataSet\\Aircraft-Engine-Lifetime-Prediction-with-Machine-Learning-master\\Datasets\\FD001\\train_FD001.txt', sep=' ', header=None)
+df_test_FD001 = pd.read_csv('...\\Datasets\\FD001\\test_FD001.txt', sep=' ', header=None)
+df_train_FD001 = pd.read_csv('...\\Datasets\\FD001\\train_FD001.txt', sep=' ', header=None)
 
 
 # dropping NAN values
@@ -128,7 +128,7 @@ nn_model.fit(X_train, y_train, epochs = 55, shuffle=True, verbose = 0)
 #so that the most accurate model can be retrieved again for an accurate prediction.
 import keras
 # from tensorflow import keras
-nn_model = keras.models.load_model('C:\\Users\\jamalm\\Desktop\\dataSet\\Aircraft-Engine-Lifetime-Prediction-with-Machine-Learning-master\\Datasets\\BestModel')
+nn_model = keras.models.load_model('...\\Datasets\\BestModel')
 
 Results_nn = df_test_FD001[['unit', 'cycles']]
 Results_knr = df_test_FD001[['unit', 'cycles']]
@@ -162,7 +162,7 @@ LinearRegression.DataFrame()
 
 #Residuals: Machine learning/statistic model shows the differences between observed and predicted values of data
 ############################################
-FinalResult = pd.read_csv('C:\\Users\\jamalm\\Desktop\\dataSet\\Aircraft-Engine-Lifetime-Prediction-with-Machine-Learning-master\\Datasets\\FD001\\RUL_FD001.txt', sep=' ', header=None)
+FinalResult = pd.read_csv('...\\Datasets\\FD001\\RUL_FD001.txt', sep=' ', header=None)
 FinalResult = FinalResult.dropna(axis=1, how='all')
 FinalResult.columns = ["Actual RUL"]
 
