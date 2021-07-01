@@ -180,7 +180,37 @@ for i in range(len(names)):
   FinalResult[predRUL_column_name] = models[i]
   FinalResult[diff_column_name] = FinalResult['Actual RUL'] - FinalResult[predRUL_column_name]
 
+#########################################################################3
+#Plot the difference between the RUL prediction measured by Neural Network Vs Actual RUL
 
+import numpy as np
+import pandas as pd
+
+a= FinalResult['Actual RUL'][:5]
+b= FinalResult['Pred_RUL_nn'][:5]
+labels = ['Unit1', 'Unit2', 'Unit3', 'Unit4', 'Unit5']
+a= FinalResult['Actual RUL'][:5]
+b= FinalResult['Pred_RUL_nn'][:5]
+
+
+x = np.arange(len(labels))  # the label locations
+width = 0.35  # the width of the bars
+
+fig, ax = plt.subplots()
+rects1 = ax.bar(x - width/2, a, width, color='r', label='Actual RUL')
+rects2 = ax.bar(x + width/2, b, width, color='b', label='Prediction RUL')
+
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_ylabel('RUL')
+ax.set_title('Difference between Actual RUL Vs RUL prediction using Neural Network')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+
+ax.bar_label(rects1, padding=3)
+ax.bar_label(rects2, padding=3)
+fig.tight_layout()
+plt.show()
 
 # Kernel Density Estimation (KDE) Plotting: Error distribution can help to Compare accuracy between the machine learning models
 ###################################################
